@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+
+	<!-- add styles -->
+    <link href="dist/angular-carousel.css" rel="stylesheet" type="text/css" />
+	
+	<!-- add javascripts -->
+    <!-- <script src="../common/jquery/jquery.min.js"></script> -->
+    <script src="http://code.angularjs.org/1.2.0rc1/angular.js"></script>
+	<script src="http://code.angularjs.org/1.2.0rc1/angular-touch.min.js"></script>
+	<script src="dist/angular-carousel.js"></script>
+	<script src="js/carouselController.js"></script>
+</head>
+
+<body ng-controller="CarouselCtrl">
+	<h3>Carousel Sample</h3>
+	<ul rn-carousel class="image">
+	  <li ng-repeat="image in photos">
+		<div style="{ background: #444 url('{{image.src}}') no-repeat 58px 15px; background-size: 500px; height: 408px; width: 615px;} "> </div>
+		<div class="layer">{{ image.desc }}</div>
+	  </li>
+	</ul>
+	
+	<h3>carousel with builtin prev/next controls</h3>
+	<ul rn-carousel rn-carousel-buffered rn-carousel-indicator rn-carousel-control class="my-slider ng-cloak">
+		<li ng-repeat="slide in photos" style="{background-image: url('{{slide.src}}'); height: 200px;}">
+			<div class="debug">
+				{{ slide.label }} / {{ slides.length }}
+			</div>
+		</li>
+	</ul>
+
+</body>
+</html>
